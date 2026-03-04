@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IM+Fell+English+SC&display=swap');
+
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-dim: rgba(201, 168, 76, 0.3);
+  --cream: #f0e6c8;
+  --ink: #0e0c09;
+  --charcoal: #181410;
+  --graphite: #221e18;
+  --silver: #b0a890;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: var(--ink);
+  color: var(--cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 1s steps(4) infinite;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0)
+  }
+
+  25% {
+    transform: translate(-3px, 2px)
+  }
+
+  50% {
+    transform: translate(2px, -3px)
+  }
+
+  75% {
+    transform: translate(-2px, -2px)
+  }
+
+  100% {
+    transform: translate(3px, 1px)
+  }
+}
+
+.site-header {
+  text-align: center;
+  padding: 1.8rem 1rem 1.4rem;
+  background: linear-gradient(180deg, #0a0806, var(--charcoal));
+  border-bottom: 1px solid var(--gold-dim);
+}
+
+.header-top-rule {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-bottom: 1.2rem;
+  opacity: 0.5;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.back-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 2rem;
+  font-family: 'IM Fell English SC', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  color: var(--silver);
+  border: 1px solid var(--gold-dim);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.back-link:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.06);
+}
+
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--cream);
+  letter-spacing: .08em;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, .8);
+}
+
+.header-bottom-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.header-bottom-rule span:first-child,
+.header-bottom-rule span:last-child {
+  flex: 1;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+.rule-diamond {
+  font-size: .65rem;
+  color: var(--gold);
+  letter-spacing: .3em;
+  flex: none !important;
+  height: auto !important;
+  background: none !important;
+}
+
+.movie-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.movie-hero {
+  display: flex;
+  gap: 3.5rem;
+  margin-bottom: 4rem;
+  align-items: flex-start;
+}
+
+.movie-poster-col {
+  flex: 0 0 auto;
+  width: min(320px, 38%);
+}
+
+.poster-frame {
+  position: relative;
+  background: var(--graphite);
+  border: 1px solid var(--gold-dim);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, .6), 0 0 40px rgba(0, 0, 0, .5);
+}
+
+.poster-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  filter: grayscale(75%) sepia(15%) contrast(1.1) brightness(.9);
+}
+
+.movie-info-col {
+  flex: 1;
+  padding-top: .5rem;
+}
+
+.info-label {
+  font-family: 'IM Fell English SC', serif;
+  font-size: .72rem;
+  letter-spacing: .28em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+
+.movie-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--cream);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, .6);
+  margin-bottom: 1.2rem;
+}
+
+.movie-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.movie-rule span:first-child,
+.movie-rule span:last-child {
+  flex: 0 0 60px;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+.rule-star {
+  color: var(--gold);
+  font-size: .7rem;
+  flex: none !important;
+  height: auto !important;
+  background: none !important;
+}
+
+.movie-meta-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  margin-bottom: 2rem;
+}
+
+.meta-row {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid rgba(201, 168, 76, .08);
+}
+
+.meta-row dt {
+  font-family: 'IM Fell English SC', serif;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.meta-row dd {
+  font-size: 1rem;
+  color: #e4dcc8;
+  font-style: italic;
+}
+
+.rating-val {
+  color: var(--gold) !important;
+  font-style: normal !important;
+  font-weight: 600;
+}
+
+.movie-synopsis {
+  margin-bottom: 2.2rem;
+}
+
+.synopsis-label {
+  font-family: 'IM Fell English SC', serif;
+  font-size: .72rem;
+  letter-spacing: .25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+
+.movie-synopsis p {
+  font-size: 1.05rem;
+  color: var(--silver);
+  font-style: italic;
+  line-height: 1.8;
+}
+
+
+.player-section {
+  margin-bottom: 3rem;
+}
+
+.player-header {
+  margin-bottom: 1.5rem;
+}
+
+.player-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'IM Fell English SC', serif;
+  font-size: .8rem;
+  letter-spacing: .22em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.player-rule span:first-child,
+.player-rule span:last-child {
+  flex: 1;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+.player-frame {
+  position: relative;
+  background: #000;
+  border: 1px solid var(--gold-dim);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .8);
+  overflow: hidden;
+}
+
+.player-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--gold);
+  border-style: solid;
+  z-index: 2;
+  opacity: .5;
+}
+
+.tl {
+  top: 8px;
+  left: 8px;
+  border-width: 2px 0 0 2px;
+}
+
+.tr {
+  top: 8px;
+  right: 8px;
+  border-width: 2px 2px 0 0;
+}
+
+.bl {
+  bottom: 8px;
+  left: 8px;
+  border-width: 0 0 2px 2px;
+}
+
+.br {
+  bottom: 8px;
+  right: 8px;
+  border-width: 0 2px 2px 0;
+}
+
+.film-player {
+  display: block;
+  width: 100%;
+  max-height: 72vh;
+  background: #000;
+}
+
+.player-unavailable {
+  padding: 5rem 2rem;
+  text-align: center;
+  color: var(--silver);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.player-unavailable span {
+  font-size: 3rem;
+  opacity: .4;
+}
+
+.pd-note {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-family: 'IM Fell English SC', serif;
+  font-size: .72rem;
+  letter-spacing: .2em;
+  color: #504840;
+}
+
+.site-footer {
+  background: var(--ink);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid var(--gold-dim);
+}
+
+.footer-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-rule span:first-child,
+.footer-rule span:last-child {
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+.footer-rule span:nth-child(2) {
+  font-family: 'IM Fell English SC', serif;
+  font-size: .75rem;
+  letter-spacing: .2em;
+  color: var(--gold);
+}
+
+.site-footer p {
+  font-style: italic;
+  color: var(--silver);
+  font-size: .9rem;
+}
+
+@media(max-width:700px) {
+  .movie-hero {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .movie-poster-col {
+    width: 65%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+}
+
+@media(max-width:480px) {
+  .movie-page {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .movie-poster-col {
+    width: 80%;
+  }
+
+  .film-player {
+    max-height: 55vw;
+  }
+}
